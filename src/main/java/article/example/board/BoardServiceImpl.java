@@ -11,5 +11,4 @@ public class BoardServiceImpl implements BoardService{
     public BoardVO getBoard(BoardVO vo) {
         return dao.getBoard(vo);
     }
-    public BoardVO getBoardList(BoardVO vo) {return dao.get}
 }
