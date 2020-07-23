@@ -12,12 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class ArticleController {
 
     @Autowired
-    BoardService service;
+    BoardService dao;
 
     @RequestMapping("/test.do")
-    public ModelAndView test(BoardVO vo) {
-        vo.setSeq(vo.getSeq());
-        vo = service.getBoard(vo);
+    public ModelAndView test(BoardVO vo){
+        System.out.println(vo.getWriter());
+        vo.setSeq(0);
+        vo = dao.getBoard(vo);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/test2");
         mav.addObject("vo",vo);

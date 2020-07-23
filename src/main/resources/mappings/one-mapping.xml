@@ -25,9 +25,8 @@
     <select id="getBoard" resultType="myboard">
         SELECT * FROM myboard WHERE seq=#{seq}
     </select>
-    <select id="getBoardList" resultMap="boardResult">
-        SELECT * FROM myboard
+    <select id="getBoardList" resultType="artic.example.board.BoardVO">
+        SELECT * FROM myboard order by seq desc
 
     </select>
 </mapper>
-
