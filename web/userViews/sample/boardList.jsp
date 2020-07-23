@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>게시판 목록</h2>
-<table style="border:1px solid #ccc">
+<table style="border:1px solid #ccc; text-align:center;">
     <colgroup>
         <col width="10%"/>
         <col width="*"/>
@@ -43,6 +43,7 @@
     </c:choose>
 
     </tbody>
+    <a href="openBoardWrite.do">글쓰기</a>
 </table>
 </body>
 </html>

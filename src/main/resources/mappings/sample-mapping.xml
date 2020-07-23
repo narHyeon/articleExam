@@ -20,4 +20,26 @@
         ]]>
      </select>
 
+    <insert id="sample.writeBoard" parameterType="hashmap">
+   <![CDATA[
+       INSERT INTO
+           TB_BOARD(
+                idx,
+               TITLE,
+               CONTENTS,
+               HIT_CNT,
+               CREA_DTM,
+               DEL_GB,
+               CREA_ID)
+           VALUES(
+                ((select nvl(max(idx), 0)+1 from tb_board)),
+               #{TITLE},
+               #{CONTENTS},
+               0,
+               sysdate,
+               'N',
+               'ADMIN')
+   ]]>
+</insert>
+
 </mapper>

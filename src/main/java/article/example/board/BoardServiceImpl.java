@@ -19,4 +19,8 @@ public class BoardServiceImpl implements BoardService{
     public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
         return dao.selectBoardList(map);
     }
+
+    public void writeBoard(Map<String, Object> map) throws Exception {
+        dao.writeBoard(map);
+    }
 }

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class BoardDAO {
     protected Log log = LogFactory.getLog(BoardDAO.class);
@@ -27,6 +28,9 @@ public abstract class BoardDAO {
 
     public Object insert(String queryId, Object params){
         printQueryId(queryId);
+        Map<String,Object> map =  (Map) params;
+        System.out.println(map.get("TITLE"));
+        System.out.println(map.get("CONTENTS"));
         return sqlSession.insert(queryId, params);
     }
 

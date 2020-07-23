@@ -6,5 +6,5 @@ import java.util.Map;
 public interface BoardService {
     BoardVO getBoard(BoardVO vo);
     List<Map<String,Object>> selectBoardList(Map<String,Object> map) throws Exception;
-
+    void writeBoard(Map<String,Object> map) throws Exception;
 }
