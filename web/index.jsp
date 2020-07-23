@@ -7,6 +7,8 @@
   <form action="test.do" method="post">
     <input type="number" name="seq">
     <button type="submit">전송</button>
+
+    안녕하세요
   </form>
   </body>
 </html>
