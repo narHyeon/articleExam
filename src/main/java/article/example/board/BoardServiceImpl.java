@@ -3,12 +3,20 @@ package article.example.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+import java.util.List;
+import java.util.Map;
+
+@Service("boardService")
 public class BoardServiceImpl implements BoardService{
+
     @Autowired
-    BoardDAO dao;
+    BoardDaoEx dao;
 
     public BoardVO getBoard(BoardVO vo) {
         return dao.getBoard(vo);
+    }
+
+    public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
+        return dao.selectBoardList(map);
     }
 }

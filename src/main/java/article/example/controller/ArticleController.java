@@ -1,27 +1,37 @@
 package article.example.controller;
 
-import article.example.board.BoardDAO;
 import article.example.board.BoardService;
-import article.example.board.BoardVO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+
 @Controller
 public class ArticleController {
 
-    @Autowired
-    BoardService dao;
+//    private final Logger log = (Logger) LoggerFactory.getLogger(getClass());
 
-    @RequestMapping("/test.do")
-    public ModelAndView test(BoardVO vo){
-        System.out.println(vo.getWriter());
-        vo.setSeq(0);
-        vo = dao.getBoard(vo);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("/test2");
-        mav.addObject("vo",vo);
-        return mav;
+    @Resource(name="boardService")
+    private BoardService boardService;
+
+    @RequestMapping(value="/testInterceptor.do")
+    public ModelAndView testInterceptor(Map<String, Object> commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("");
+//        log.debug("인터셉터 테스트");
+
+        return mv;
+    }
+
+    @RequestMapping(value="/sample/openBoardList.do")
+    public ModelAndView openBoardList(Map<String, Object> commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/boardList");
+
+        List<Map<String,Object>> list = boardService.selectBoardList(commandMap);
+        mv.addObject("list", list);
+
+        return mv;
     }
 }

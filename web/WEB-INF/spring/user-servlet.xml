@@ -9,11 +9,14 @@
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <context:component-scan base-package="article.example" />
-    <mvc:annotation-driven>
-        <!--        <mvc:message-converters>-->
-        <!--            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>-->
-        <!--        </mvc:message-converters>-->
-    </mvc:annotation-driven>
+    <mvc:annotation-driven />
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loggerInterceptor" class="article.example.logger.LoggerInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/userViews" />

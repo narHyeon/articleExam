@@ -8,5 +8,6 @@
     </typeAliases>
     <mappers>
         <mapper resource="mappings/one-mapping.xml" />
+        <mapper resource="mappings/sample-mapping.xml" />
     </mappers>
 </configuration>
