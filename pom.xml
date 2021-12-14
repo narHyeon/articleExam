@@ -12,7 +12,7 @@
         <!-- tiles관련 추가 -->
         <org.apache.tiles-version>3.0.8</org.apache.tiles-version>
         <slf4j.version>1.7.30</slf4j.version>
-        <log4j.version>2.13.3</log4j.version>
+        <log4j.version>2.16.0</log4j.version>
     </properties>
 
     <dependencies>
